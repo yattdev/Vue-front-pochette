@@ -143,6 +143,9 @@ export default Vue.extend({
                    console.log(r.value);
                   });
                 })
+                .then(() => {
+                    if(this.$router.to !== '/') this.$router.push('/')
+                })
                 .then(() => window.location.reload())
                 .catch(error => {
                   console.log(error);

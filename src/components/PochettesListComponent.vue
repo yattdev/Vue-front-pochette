@@ -92,7 +92,6 @@ export default Vue.component('PochettesListComponent', {
              console.log(r.value);
             })
             .then(() => window.location.reload())
-            ;
         }
 
     }
