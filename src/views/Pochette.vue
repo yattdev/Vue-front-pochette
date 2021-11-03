@@ -121,7 +121,7 @@ export default Vue.extend({
                     .then(response => {
                         console.log(response.status)
                     })
-                    .then(() => window.location.reload())
+                    .then(() => this.$router.push('/'))
                     .catch(error => {
                         if(error.response) {
                             for(const property in error.response.data){

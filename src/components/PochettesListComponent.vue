@@ -82,15 +82,17 @@ export default Vue.component('PochettesListComponent', {
                         console.log(error)
                     })
 
-                this.$fire({
-                  title: "Delete Album",
-                  text: "Deleted successfully ! ",
-                  type: "success",
-                  timer: 3000
-                }).then(r => {
-                 console.log(r.value);
-                });
             });
+            await this.$fire({
+              title: "Delete Album",
+              text: "Deleted successfully ! ",
+              type: "success",
+              timer: 3000
+            }).then(r => {
+             console.log(r.value);
+            })
+            .then(() => window.location.reload())
+            ;
         }
 
     }
