@@ -19,7 +19,7 @@
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.2.0",
     "vue-simple-alert": "^1.1.1",
-    "vue-spinner": "^1.0.4",
+    "vue-spinkit": "^2.0.0",
     "vuejs-overlay": "^0.0.28",
     "vuex": "^3.4.0"
   },

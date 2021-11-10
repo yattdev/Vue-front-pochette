@@ -52,13 +52,12 @@
             </router-link>
         </div>
       </header><!-- End Header -->
-
-      <bounce-loader :loading="loading" color="#cc181e" size="50"></bounce-loader>
       <!-- Login SignIn modal vue -->
       <signup-component/>
       <create-pochette-component/>
       <signin-component/>
 
+      <Spinner :isLoading="isLoading"/>
       <router-view/>
 
       <!-- ======= Footer ======= -->
@@ -99,7 +98,7 @@ import Overlay from 'vuejs-overlay';
 import LogIn from './views/LogIn'
 import SignUp from './views/SignUp'
 import Pochette from './views/Pochette';
-import BounceLoader from 'vue-spinner/src/BounceLoader.vue'
+import Loader from './components/Loader.vue'
 
 export default Vue.extend({
     data() {
@@ -112,7 +111,7 @@ export default Vue.extend({
         "signup-component": SignUp,
         "signin-component": LogIn,
         "create-pochette-component": Pochette,
-        BounceLoader,
+        "Spinner": Loader,
     },
     beforeCreate(){
         this.$store.commit('initializeStore');

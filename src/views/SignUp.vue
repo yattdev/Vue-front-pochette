@@ -83,11 +83,14 @@ export default Vue.extend({
                 await axios
                     .get('/get-token')
                     .then(response => {
+                      this.$store.commit('setIsLoading', true)
                         const csrf_token = response.data.csrf_token
                         /* add csrf_token to axios headers */
                         axios.defaults.headers.common['X-CSRFToken'] = csrf_token
+                        this.$store.commit('setIsLoading', false)
                     })
                     .catch(error => {
+                      this.$store.commit('setIsLoading', false)
                         // TODO: Display toast message will error message
                         console.log(error)
                     })
@@ -95,6 +98,7 @@ export default Vue.extend({
                 await axios
                     .post("/authusers/", formData)
                     .then(response => {
+                        this.$store.commit('setIsLoading', true)
                         /* TODO: Faire un toast pour dir afficher le msg de success */
                         const token = response.data.data.access
 
@@ -106,8 +110,10 @@ export default Vue.extend({
                              config.headers["Authorization"] = "Bearer " + localStorage.getItem("token");
                            return config;
                          });
+                        this.$store.commit('setIsLoading', false)
                     })
                     .catch(error => {
+                        this.$store.commit('setIsLoading', false)
                         if(error.response) {
                             for(const property in error.response.data){
                                 this.errors.push(property+": "+error.response.data[property])
@@ -127,6 +133,7 @@ export default Vue.extend({
             await axios
                 .get("/authusers/me/")
                 .then(response => {
+                  this.$store.commit('setIsLoading', true)
                   const authenticatedUserData = JSON.stringify(response.data);
                   this.$store.commit('setAuthenticatedUserData', authenticatedUserData)
                   localStorage.setItem("authenticatedUserData",
@@ -143,11 +150,13 @@ export default Vue.extend({
                    console.log(r.value);
                   });
                 })
+                 this.$store.commit('setIsLoading', false)
                 .then(() => {
                     if(this.$router.to !== '/') this.$router.push('/')
                 })
                 .then(() => window.location.reload())
                 .catch(error => {
+                 this.$store.commit('setIsLoading', false)
                   console.log(error);
                 });
         },
