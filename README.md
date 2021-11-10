@@ -1,4 +1,5 @@
 # A Vue Frontend for django-backend-pochette to handle Music album covers
+Link to app: https://pochette.netlify.app/
 
 ## Project setup
 ```
