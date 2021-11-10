@@ -11,7 +11,6 @@
           <h2>Pochettes D'albums</h2>
           <p>Les derniers pochettes albums</p>
         </div>
-        <Spinner :isLoading="isLoading"/>
         <pochette-list-component :propPochettesList="pochettesList"/>
       </div>
     </section><!-- End Popular Cours Section -->
@@ -28,7 +27,6 @@ import PochettesListComponent from '@/components/PochettesListComponent.vue'; //
 import axios from "axios";
 /* import HeaderComponent from "@/components/HeaderComponent.vue"; */
 /* import SectionComponent from "@/components/SectionComponent.vue"; */
-import Loader from '../components/Loader.vue'
 
 export default Vue.extend({
     name: 'Home',
@@ -41,16 +39,10 @@ export default Vue.extend({
     components: {
         'pochette-list-component': PochettesListComponent,
         /* "header-component": HeaderComponent, */
-        "Spinner": Loader,
     },
 
     mounted(){
         this.getPochettesList();
-    },
-    computed: {
-        isLoading() {
-            return this.$store.state.isLoading;
-        }
     },
 
     methods: {

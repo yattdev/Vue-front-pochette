@@ -7,14 +7,6 @@
       <link href="./assets/img/favicon.png" rel="icon">
       <link href="./assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-      <!-- Vendor CSS Files -->
-      <link href="./assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-      <link href="./assets/vendor/aos/aos.css" rel="stylesheet">
-      <link href="./assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-      <link href="./assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-      <link href="./assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-      <link href="./assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-      <link href="./assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <!-- Google Fonts -->
@@ -57,8 +49,8 @@
       <create-pochette-component/>
       <signin-component/>
 
-      <Spinner :isLoading="isLoading"/>
-      <router-view/>
+      <Spinner v-if="isLoading"/>
+      <router-view v-else/>
 
       <!-- ======= Footer ======= -->
       <footer id="footer" class="fixed-bottom">
@@ -132,12 +124,11 @@ export default Vue.extend({
 
         authUser(){
             const data = JSON.parse(localStorage.getItem('authenticatedUserData'))
-            console.log(data)
             if(data) return data
             else return {id: "", email: ""}
         },
 
-        loading_b(){
+        isLoading(){
             return this.$store.isLoading;
         }
     },

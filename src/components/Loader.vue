@@ -7,14 +7,12 @@ import Vue from 'vue'
 import Spinner from 'vue-spinkit'
 
 export default Vue.component('Loader',{
-    props: [ 'isLoading' ],
     data() {
         return { }
     },
     computed: {
         loading(){
-        console.log(this.isLoading);
-            return this.isLoading;
+            return this.$store.state.isLoading;
         }
     },
     components: {

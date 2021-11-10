@@ -64,7 +64,6 @@ export default Vue.component('PochettesListComponent', {
         },
         authUser(){
             const data = JSON.parse(localStorage.getItem('authenticatedUserData'))
-            console.log(data)
             if(data) return data
             else return {id: "", email: ""}
         }
@@ -76,7 +75,7 @@ export default Vue.component('PochettesListComponent', {
                 axios
                     .delete('/pochettes/'+pochette.id+'/'+pochette.slug)
                     .then((response) => {
-                        console.log(response.status)
+                        /* console.log(response.status) */
                     })
                     .catch((error) => {
                         console.log(error)
