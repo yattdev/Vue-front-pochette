@@ -49,8 +49,8 @@
       <create-pochette-component/>
       <signin-component/>
 
+      <router-view />
       <Spinner v-if="isLoading"/>
-      <router-view v-else/>
 
       <!-- ======= Footer ======= -->
       <footer id="footer" class="fixed-bottom">
@@ -95,7 +95,6 @@ import Loader from './components/Loader.vue'
 export default Vue.extend({
     data() {
         return {
-            loading: true,
         }
     },
     components: {
@@ -118,6 +117,10 @@ export default Vue.extend({
     },
 
     computed: {
+        isLoading(){
+            return this.$store.state.isLoading;
+        },
+
         isAuthenticated() {
             return this.$store.state.isAuthenticated
         },
@@ -127,10 +130,6 @@ export default Vue.extend({
             if(data) return data
             else return {id: "", email: ""}
         },
-
-        isLoading(){
-            return this.$store.isLoading;
-        }
     },
 
     methods: {
