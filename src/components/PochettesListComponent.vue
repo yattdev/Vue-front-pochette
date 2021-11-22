@@ -1,6 +1,6 @@
 <template>
     <div id="PochettesListComponent" class="row">
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch my-md-2 my-ml-2"
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch my-2"
         v-for="pochette in pochettes"
         v-bind:key="pochette.id">
         <div class="course-item" style="background-color: #ded">
