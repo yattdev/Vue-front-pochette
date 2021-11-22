@@ -21,9 +21,9 @@
         <div class="container d-flex align-items-center">
 
           <h1 class="logo me-auto"><router-link to="/">Gestion pochette albums</router-link></h1>
-            <span v-if="authUser.id">Signed as <strong class="mx-2">  {{ authUser.email }}</strong></span>
+          <div id="container">
             <router-link v-if="!isAuthenticated"
-                class="get-started-btn bg-success" to=""
+                class="get-started-btn bg-success my-2" to=""
                 data-toggle="modal" data-target="#modalLoginForm">
                 <i class="far fa-user"></i> Sign-In
             </router-link>
@@ -33,7 +33,7 @@
                 <i class="fas fa-user-plus"></i> Sign-Up
             </router-link>
             <a v-if="isAuthenticated"
-            href="#" class="get-started-btn bg-danger"
+            href="#" class="get-started-btn bg-danger m-4 my-2"
             v-on:click="log_out">
                 <i class="fas fa-sign-out-alt"></i> Log Out
             </a>
@@ -42,7 +42,9 @@
             data-toggle="modal" data-target="#modalPochetteForm">
                 <i class="fas fa-upload"></i> Upload Pochette
             </router-link>
+          </div>
         </div>
+        <center> <span v-if="authUser.id">Signed as <strong class="mx-2">  {{ authUser.email }}</strong></span></center>
       </header><!-- End Header -->
       <!-- Login SignIn modal vue -->
       <signup-component/>
