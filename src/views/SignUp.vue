@@ -149,8 +149,8 @@ export default Vue.extend({
                   }).then(r => {
                    console.log(r.value);
                   });
-                })
                  this.$store.commit('setIsLoading', false)
+                })
                 .then(() => {
                     if(this.$router.to !== '/') this.$router.push('/')
                 })
