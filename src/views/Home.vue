@@ -8,8 +8,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Pochettes D'albums</h2>
-          <p>Les derniers pochettes albums</p>
+          <h2>Liste des shonens</h2>
+          <p>Liste de mes shonens préférés</p>
         </div>
         <pochette-list-component :propPochettesList="pochettesList"/>
       </div>
