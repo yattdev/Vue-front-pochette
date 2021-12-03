@@ -20,7 +20,7 @@
       <header id="header" class="">
         <div class="container d-flex align-items-center">
 
-          <h1 class="logo me-auto"><router-link to="/">Gestion pochette albums</router-link></h1>
+          <h1 class="logo me-auto"><router-link to="/">ShonensDB</router-link></h1>
           <div id="container">
             <router-link v-if="!isAuthenticated"
                 class="get-started-btn bg-success my-2" to=""
